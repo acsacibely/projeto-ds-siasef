@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.consulta{
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    padding: 30px 4%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form div.single{
+    position: relative;
+    margin: 25px 0;
+}
+
+form div.single label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+}
+
+form div.single input{
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid rgb(200, 200, 200);
+    outline: 0;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+}
+
+form div.single input:focus, form div.single input:valid{
+    border-bottom: 2px solid #4CAF50; 
+
+}
+/*form div.single input:valid ~ label*/
+form div.single input:focus ~ label, form div.single input:valid ~ label{
+    transform: translateY(-25px);
+    font-size: 12px; 
+    color:#4CAF50;
+    transition: all 0.5s ease-in-out;
+}
+
+button[type="submit"], button[type="button"], button[type="password"], a.cancel{
+    border: 1px solid rgba(110, 110, 110, 0.253);
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 1em;
+    color: black;
+    background: white;
+}
+
+button[type="submit"]:hover, button[type="password"]:hover{
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.cancel:hover{
+    background-color: rgba(255, 0, 0, 0.609);
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+}
+a.nav-link{
+    cursor: pointer;
+}
+
+.head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.head p{
+    padding-top: 20px;
+}
+
+.head p span{
+    font-weight: bold;
+}
+
+.box-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+ul li{
+    list-style: none;
+}
+
+ul li a{
+    color: black;;
+}
+
+
+ul li a:hover{
+    color: black;;
+}
