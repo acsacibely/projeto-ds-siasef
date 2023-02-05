@@ -4,9 +4,21 @@
     include_once('config.php');
 
     if((!isset($_SESSION['matricula']) == true) and (!isset($_SESSION['senha']) == true)){
-        header('Location: login.php');
+        header('Location: ./home/login.php');
     }else{
         $logado = $_SESSION['matricula']; //aqui deve pegar o nome para aparecer na tela
+        $sqlNome = ("SELECT * FROM respon WHERE matricula LIKE '$logado'");
+        $resultNome = $conn->query($sqlNome);
+
+        if ($resultNome->num_rows > 0){
+            while($user_data = mysqli_fetch_assoc($resultNome)){
+                $respon = $user_data['nome'];
+               
+            }
+        }else{
+            echo "mensagem de erro para a busca do id do responsável";
+        }
+        
     }
 
     //CAMPO DE PESQUISA
@@ -27,7 +39,7 @@
 </head>
 <body>
 <div class="head">
-    <p>Usuário logado de matrícula: <span><?php echo $logado; ?></span></p>
+    <p>Bem-vind@: <span><?php echo $respon; ?></span></p>
     <!--ESPAÇO PARA PESQUISA-->
     <div class="box-search">
         <input class="form-control w=10" type="search" name="" id="pesquisar" placeholder="Pesquisar">
@@ -35,8 +47,8 @@
     </div>
 </div>
     <!--TABELA COM AS INFORMAÇÕES DO BANCO DE DADOS LISTADAS-->
-    <div class="m-5">
-        <table class="table">
+    <div class="m-5 table-responsive-sm">
+        <table class="table table-hover">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -49,21 +61,24 @@
             </thead>
             <tbody>
                 <?php
+                    $count = 1;
                     while($user_data = mysqli_fetch_assoc($result)){
                         echo "<tr>";
-                        echo "<td>".$user_data['idmateriais']. "</td>";
+                        $id = $user_data['idmateriais'];
+                        echo "<td> ".$count++ . "</td>";
                         echo "<td>".$user_data['nome']. "</td>";
                         echo "<td>".$user_data['categoria']. "</td>";
                         echo "<td>".$user_data['qntd']. "</td>";
                         echo "<td>".$user_data['estado']. "</td>";
                         echo "<td>
-                            <a class='btn btn-sm btn-primary' href='edit.php?idmateriais=$user_data[idmateriais]'>
+                            <a class='btn btn-sm btn-primary' href='edit.php?idmateriais=$id'>
                                 <i class='bi bi-pencil'></i>
                             </a>
-                            <a class='btn btn-sm btn-danger' href='delete.php?idmateriais=$user_data[idmateriais]'>
+                            <button class='btn btn-sm btn-danger' data-toggle='modal' data-target='#idmodal'>
                                 <i class='bi bi-trash-fill'></i>
-                            </a>
-                            <a class='btn btn-sm btn-success' href='emprestimo.php?idmateriais=$user_data[idmateriais]'>
+                                
+                            </button>
+                            <a class='btn btn-sm btn-success' href='emprestimo/emprestimo.php?idmateriais=$id'>
                                 <i class='bi bi-file-arrow-up'></i>
                             </a>
                             
@@ -75,6 +90,31 @@
                 ?>
             </tbody>
         </table>
+    </div>
+
+    <!--MODAL PARA CONFIRMAR EXCLUSÃO--->
+    <!-- Botão para acionar modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="idmodal" tabindex="-1" role="dialog" aria-labelledby="labelmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="labelmodal">Confirmar exclusão</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Deseja realmente excluir as linhas de informação?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <a href='<?php echo "delete.php?idmateriais=$id"?>' class="btn btn-danger">Confirmar</a>
+        </div>
+        </div>
+    </div>
     </div>
 
     <script>

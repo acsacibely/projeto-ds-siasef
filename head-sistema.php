@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIASEF</title>
-    <link rel="shortcut icon" href="./img/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/icon-white.png" type="image/x-icon">
 
     <!--BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -29,21 +29,25 @@
     <!--NAVBAR POR CATEGORIA-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SIASEF</a>
+        <img src="./img/logo-h-black.png" alt="logo do siasef" class="navbar-brand" width= 120px>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
           <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link" href="./sistema.php">Consulta</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="./index.php">Adicionar Materiais</a>
+          <li class="nav-item">
+              <a class="nav-link" href="./sistema.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Empréstimo</a>
+              <a class="nav-link" href="./adicionar.php">Adicionar Materiais</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./discentes.php">Adicionar Discentes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./historico.php">Histórico</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./encerrar.php">Sair</a>

@@ -28,34 +28,48 @@
 <html lang="pt-br">
 <head>
     <?php include_once('head-sistema.php')?>
+     <!--CSS-->
+     <link rel="stylesheet" href="./teststyle.css">
 </head>
-<body>
-    <div class="consulta">
+<body class="pattern">
+    <main class="container">
+        <h1>Editar material</h1>
+       
         <form action="saveEdit.php" method="POST">
-            <div class="single">
+            
+            <div class="input-field">
                 <input id="pes" type="text" name="name" value="<?php echo $nome?>">
+                <div class="line"></div>
                 <label for="pes">Nome</label>
             </div>
-            <div class="single">
+            <div class="input-field">
                 <input type="text" name="category" id="category" value="<?php echo $categoria?>">
+                <div class="line"></div>
                 <label for="category">Categoria</label>
             </div>
-            <div class="single">
+            <div class="input-field">
                 <input type="text" name="qntd" id="qntd" value="<?php echo $qntd?>">
+                <div class="line"></div>
                 <label for="qntd">Quantidade</label>
             </div>
-            <div class="single">
+            <div class="input-field">
                 <input type="text" name="estado" id="estado" value="<?php echo $estado?>">
+                <div class="line"></div>
                 <label for="estado">Estado do material</label>
             </div>
-        
-            <a class="cancel" href="./sistema.php">Cancelar</a>
-            <button type="submit" name="update" id="update">Alterar</button>
+
+            <div class="buttons">
+                <button type="submit" name="update" id="update">Alterar</button>
+               <button class="cancel" onclick="voltar();">Voltar</button>
+            </div>
 
             <input type="hidden" name="id" value="<?php echo $id?>">
-        </form>
-      
-    </div>
-   
+        </form>  
+    </main>
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

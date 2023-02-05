@@ -14,6 +14,7 @@
         $sqlUpadate = "UPDATE materiais SET nome = '$nome', categoria='$categoria', qntd = '$qntd', estado = '$estado' WHERE idmateriais ='$id'";
 
         $result = $conn->query($sqlUpadate);   
+        
     }
     header('Location: sistema.php');
 ?>

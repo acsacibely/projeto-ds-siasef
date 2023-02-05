@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: linear-gradient(45deg, #4CAF50, #B5F9B8);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img.logo{
+    width: 300px;
+    padding-bottom: 20px;
+}
+
+h1{
+    font-weight: 600;
+}
+main.container{
+    background: white;
+    max-width: 350px;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+main h1{
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+main h1::before{
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 45px;
+    bottom: 3px;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #4CAF50, #B5F9B8);
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.input-field{
+    position: relative;
+}
+form .input-field:first-child{
+    margin-bottom: 1.5rem;
+}
+.input-field .underline::before{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: rgba(0,0,0,0.2)
+}
+.input-field .underline::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg,#4CAF50, #B5F9B8);
+    transform: scaleX(0);
+    transition: all .5s ease-in-out;
+    transform-origin: left;
+}
+.input-field input:focus ~ .underline::after{
+    transform: scaleX(1);
+}
+.input-field input{
+    outline: none;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.7);
+    width: 100%;
+}
+
+.input-field input::placeholder{
+    color: rgba(0,0,0,0.5);
+}
+form button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 0.4rem;
+    background: linear-gradient(to left, #4CAF50, #B5F9B8);
+    cursor: pointer;
+    min-height: 300;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out
+}
+form button[type="submit"]:hover{
+    letter-spacing: 0.5px;
+    background: linear-gradient(to right, #4CAF50, #B5F9B8);
+
+}
+form button.cancel, form a.voltar{
+    padding: 0.4rem;
+    cursor: pointer;
+    color: rgba(0,0,0,0.7);
+    font-size: 0.9rem;
+    min-height: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin: auto;
+    background-color: transparent;
+}
+form button.cancel:hover{
+    letter-spacing: 0.5px;
+    color: rgba(255, 0, 0, 0.609);
+    text-decoration: none;
+}
+
+form a.voltar:hover{
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+div.cadastro p{
+    margin: 0;
+}
+div.cadastro a, div.cadastro p{
+    color: rgba(0,0,0,0.4);
+}
+
+div.cadastro a:hover{
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/*(#4CAF50, #B5F9B8)*/

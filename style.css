@@ -1,3 +1,6 @@
+
+/*CSS NOVO || ADD A PARTE DO BICHO FLUTUANTE*/
+
 *{
     margin: 0;
     padding: 0;
@@ -5,84 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.consulta{
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    box-shadow: 0 0 3px rgba(0,0,0,0.3);
-    padding: 30px 4%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-form div.single{
-    position: relative;
-    margin: 25px 0;
-}
-
-form div.single label {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    color: rgb(100, 100, 100);
-    cursor: pointer;
-}
-
-form div.single input{
-    width: 100%;
-    padding: 5px;
-    border: 0;
-    border-bottom: 2px solid rgb(200, 200, 200);
-    outline: 0;
-    font-size: 16px;
-    transition: all 0.5s ease-in-out;
-}
-
-form div.single input:focus, form div.single input:valid{
-    border-bottom: 2px solid #4CAF50; 
-
-}
-/*form div.single input:valid ~ label*/
-form div.single input:focus ~ label, form div.single input:valid ~ label{
-    transform: translateY(-25px);
-    font-size: 12px; 
-    color:#4CAF50;
-    transition: all 0.5s ease-in-out;
-}
-
-button[type="submit"], button[type="button"], button[type="password"], a.cancel{
-    border: 1px solid rgba(110, 110, 110, 0.253);
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 8px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    font-size: 1em;
-    color: black;
-    background: white;
-}
-
-button[type="submit"]:hover, button[type="password"]:hover{
-    background-color: #4CAF50;
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.cancel:hover{
-    background-color: rgba(255, 0, 0, 0.609);
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    text-decoration: none;
-}
-a.nav-link{
-    cursor: pointer;
-}
+/*CSS DO SISTEMA  | HEAD */
 
 .head{
     display: flex;
@@ -106,15 +32,144 @@ a.nav-link{
     width: 50%;
 }
 
-ul li{
-    list-style: none;
+/*CSS DOS FORMS PARA ADICIONAR/EDITAR MATERIAIS E DISCENTES*/
+.pattern{
+    background-image: url('./img/pattern.png');
+    background-size: cover;
+}
+main{
+   margin: 8% auto 0 ;
 }
 
-ul li a{
-    color: black;;
+main.container{
+    background: white;
+    max-width: 350px;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    
+}
+main h1{
+    font-weight: 500;
+    font-size: 1.8em;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+/*input flutuante*/
+form .input-field{
+    position: relative;
 }
 
 
-ul li a:hover{
-    color: black;;
+div.input-field{
+    position: relative;
 }
+
+div.input-field input{
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgb(100, 100, 100);
+    outline: 0;
+    margin-bottom: 20px
+}
+
+div.input-field input:focus ~ label, div.input-field input:valid ~ label {
+    outline: 0;
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: #4CAF50;
+    margin-bottom: 20px
+}
+
+div.input-field label{
+    position: absolute;
+    bottom: -1;
+    left: 0;
+    color: rgb(100, 100, 100);
+    transition: 0.3s;
+}
+
+div.input-field .line{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 1px;
+    background-color:rgb(100, 100, 100);
+    transform: scaleX(0);
+    margin-bottom: 20px
+}
+
+div.input-field input:focus ~ .line, div.input-field input:valid ~ .line{
+    background-color:#4CAF50;
+    transform: scaleX(1);
+}
+
+/*botões*/
+
+
+form div.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+form div.buttons button{
+    margin-right:3px;
+}
+
+button[type="submit"]{
+    border: 1px solid rgba(110, 110, 110, 0.253);
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 1em;
+    color: black;
+    outline: 0;
+    background: white;
+}
+
+button[type="submit"]:hover{
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.cancel{
+    border: 1px solid rgba(110, 110, 110, 0.253);
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 1em;
+    color: black;
+    outline: 0;
+    background: white;
+}
+
+.cancel:hover{
+    background-color: rgba(255, 0, 0, 0.609);
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+    outline: 0;
+}
+
+
+/*botão de gerar relatório do histórico*/
+.gerar{
+    margin-left: 85%;
+    margin-bottom: 3%;
+}
+
