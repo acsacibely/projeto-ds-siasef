@@ -38,7 +38,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include_once('../sistema/head-sistema.php')?>
+    <?php include_once('../head.php')?>
     <!--CSS-->
     <link rel="stylesheet" href="../style.css">
 </head>

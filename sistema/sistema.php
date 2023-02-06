@@ -25,7 +25,7 @@
 
     if(!empty($_GET['search'])){
        $data = $_GET['search'];
-       $sql = "SELECT * FROM materiais WHERE idmateriais LIKE '%$data%' or nome LIKE '%$data%' or categoria LIKE '%$data%' ORDER BY idmateriais";
+       $sql = "SELECT * FROM materiais WHERE idmateriais LIKE '%$data%' or nome LIKE '%$data%' or categoria LIKE '%$data%' or qntd LIKE '%$data%' or estado LIKE '%$data%' ORDER BY idmateriais";
     }else{
         $sql = "SELECT * FROM materiais ORDER BY idmateriais";
     }
@@ -39,7 +39,7 @@
 </head>
 <body>
 <div class="head">
-    <p>Bem-vind@: <span><?php echo $respon; ?></span></p>
+    <p>Boas vindas: <span><?php echo $respon; ?></span></p>
     <!--ESPAÇO PARA PESQUISA-->
     <div class="box-search">
         <input class="form-control w=10" type="search" name="" id="pesquisar" placeholder="Pesquisar">

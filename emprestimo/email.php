@@ -60,6 +60,7 @@ require '../phpmailer/vendor/autoload.php';
 
                 $mail->send();
                 echo '<script>alert("E-mail enviado com sucesso!")</script>';
+                echo "<a href='../sistema/sistema.php'>Voltar</a>";
                 
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
