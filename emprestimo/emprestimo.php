@@ -9,19 +9,9 @@
     }else{
         $logado = $_SESSION['matricula']; //aqui deve pegar o nome para aparecer na tela
     };
-/*
-    if(!empty($_GET['search'])){
-        $data = $_GET['search'];
-        $sql = "SELECT * FROM discentes WHERE id LIKE '%$data%' or nomeDisc LIKE '%$data%' or matriDisc LIKE '%$data%' or emailDisc LIKE '%$data%' ORDER BY id";
-        
-     }else{
-         echo "deu errado mona";
-         //$sql = "SELECT * FROM discentes ORDER BY id";
-     }
-     $resultDiscente = $conn->query($sql);
-*/
-     $sqlDiscente = "SELECT * FROM discentes ORDER BY id";
-     $resultDiscente = $conn->query($sqlDiscente);
+
+    $sqlDiscente = "SELECT * FROM discentes ORDER BY id";
+    $resultDiscente = $conn->query($sqlDiscente);
     
 
     if(!empty($_GET['idmateriais'])){
@@ -38,27 +28,25 @@
                 $estado = $user_data['estado'];
             }
         }else{
-            header('Location: ../sistema.php');
+            header('Location: ../sistema/sistema.php');
         }
     }else{
-        header('Location: ../sistema.php');
+        header('Location: ../sistema/sistema.php');
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include_once('../head.php')?>
+    <?php include_once('../sistema/head-sistema.php')?>
     <!--CSS-->
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-   
- 
-
+<body class="pattern">
     <main class="container">
+        <a href="../sistema/sistema.php" title="voltar"><i class="bi bi-arrow-left-circle"></i></a>
         <h1>Dados para empréstimo</h1>
-        <form action="testEmprestimo.php" method="post" class=form>
+        <form action="./testEmprestimo.php" method="post" class=form>
 
             <div class="input-field">
                 <input id="pes" type="text" name="nome" value="<?php echo $nome?>">
@@ -105,15 +93,15 @@
             <input type="hidden" name="id" value="<?php echo $id?>">
 
             <div class="buttons">
-                <button type="submit" name="submit">Confirmar</button>
-                <button class="cancel" onclick="voltar();">Cancelar</button>
-               
+                <button type="submit" name="submit">Gerar PDF</button>
+                <button type='submit' name="enviar">Enviar por email</button>
+                 
             </div>
         </form>
     </main>
     <script>
         function voltar(){
-            window.location.href = "../sistema.php";
+            window.location.href = "../sistema/sistema.php";
         }
     </script>
    

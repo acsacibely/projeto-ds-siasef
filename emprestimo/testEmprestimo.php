@@ -1,14 +1,10 @@
 <?php
 
-use Dompdf\Dompdf;
-require_once '../dompdf/autoload.inc.php';
-
 date_default_timezone_set('UTC');
 
 include_once('../config.php');
 
-
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) OR (isset($_POST['enviar']))){
 
     $idMaterial = $_POST['id'];
 
@@ -19,9 +15,6 @@ if(isset($_POST['submit'])){
     $logado = $_POST['logado'];
     $discente = $_POST['select'];
 
-    //$data = new DateTime(); // Pega o momento atual
-    //$dataEmprestimo = $data->format('Y-m-d');
-    //$dataDevol = date('Y-m-d', strtotime('+5 days', strtotime('$data')));
     $dataD = new DateInterval('P1D');
     $dataE = new DateTimeImmutable();
     $dataEmprestimo = $dataE->format('Y-m-d'); 
@@ -53,13 +46,13 @@ if(isset($_POST['submit'])){
             $idDisc = $user_data['id'];
             $nomeDisc = $user_data['nomeDisc'];
             $matriDisc = $user_data['matriDisc'];
+            $emailDisc = $user_data['emailDisc'];
            
         }
     }else{
         echo "mensagem de erro para a busca do id do discente";
     }
 
-    //pegar todas as informações de responsável, discente e material para gerar PDF
     $sqlResponPDF =  mysqli_query($conn, "SELECT * FROM respon WHERE matricula=$logado");
 
 
@@ -100,50 +93,14 @@ if(isset($_POST['submit'])){
     
         $resultTabela = mysqli_query($conn, "INSERT INTO `siasef_bd`.`emprestimo`(`dataEmprestimo`, `dataDevolPrevista`, `idMateriais`, `qntdMaterial`, `idRespon`, `idDiscente`) VALUES('$dataEmprestimo', '$dataDevol', '$idMaterial','$qntdInformada', '$idRespon', '$idDisc')");
 
-
-        //PDF
-
-
-        $dompdf = new Dompdf();
-
-        //['enable_remote' => true]
-        //$img = "<img src='../img/icon-green.png' style='width:100px; height: 30px;'>";
-
-
-        $dompdf->loadHtml('
-        <h1> SIASEF | Registro de Empréstimo </h1>
-        <h2>Dados do material</h2>
-        <p>Nome: '. $nome . '</p>
-        <p>Quantidade: '. $qntdInformada . '</p>
-        <p>Estado: '. $estado . '</p>
-        <p>Categoria: '. $categoria . '</p>
-        <hr>
-        <h2>Dados do discente</h2>
-        <p>Nome: ' . $nomeDisc . '</p>
-        <p>Matrícula: '. $matriDisc . '</p>
-        <h2>Dados do responsável</h2>
-        <p>Responsável: '. $nomeRespon . '</p>
-        <p>Matrícula: '. $matriRespon . '</p>
-        <hr>
-        <p>Data de empréstimo: '. $dataEmprestimo . '</p>
-        <p>Data de devolução prevista: '. $dataDevol . ' </p>
-        <hr>
-
-        ');
-
-        //renderizando o html
-
-        $dompdf->render();
-
-        //gerar a saída do documento pdf
-        $dompdf->stream(
-            "relatorio-de-emprestimo.pdf", //nome do arquivo
-            array(
-                "Attachment" => false //(apenas visualizar e true é para download)
-            )
-            );
-
-
+        if(isset($_POST['submit'])){
+            // gera PDF
+            include_once('gerarpdf.php');
+        }
+        if(isset($_POST['enviar'])){
+            //envia por email
+            include_once('email.php');
+        }
 
     } else if ($qntdInformada > $qntdEstoque){
         //mandar um alert dizendo que não pode
@@ -157,9 +114,7 @@ if(isset($_POST['submit'])){
         echo "<a href='emprestimo.php'>Voltar</a>";
         
     }
-
-//$dataDevol = date('Y-m-D', strtotime('+7 days', strtotime('$dataEmprestimo')));
-
+   
 }
 
 

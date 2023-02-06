@@ -33,10 +33,12 @@
 }
 
 /*CSS DOS FORMS PARA ADICIONAR/EDITAR MATERIAIS E DISCENTES*/
+/*
 .pattern{
     background-image: url('./img/pattern.png');
     background-size: cover;
 }
+*/
 main{
    margin: 8% auto 0 ;
 }
@@ -50,6 +52,18 @@ main.container{
     border-radius: 8px;
     
 }
+
+main a{
+    color: black;
+    position: relative;
+    left: 90%;
+    font-size: 20px;
+}
+
+main a:hover{
+    color: #4CAF50;
+}
+
 main h1{
     font-weight: 500;
     font-size: 1.8em;
@@ -111,6 +125,10 @@ div.input-field input:focus ~ .line, div.input-field input:valid ~ .line{
     transform: scaleX(1);
 }
 
+div.input-field p{
+    margin-bottom: 0px;
+}
+
 /*botões*/
 
 
@@ -123,18 +141,18 @@ form div.buttons{
 }
 
 form div.buttons button{
-    margin-right:3px;
+    margin: 10px 3px 0 0;
 }
 
-button[type="submit"]{
+button{
     border: 1px solid rgba(110, 110, 110, 0.253);
-    padding: 8px;
-    margin-top: 10px;
+    padding: 5px;
+ 
     border-radius: 8px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     font-size: 1em;
-    color: black;
+    color: #000000;
     outline: 0;
     background: white;
 }
@@ -143,19 +161,6 @@ button[type="submit"]:hover{
     background-color: #4CAF50;
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.cancel{
-    border: 1px solid rgba(110, 110, 110, 0.253);
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 8px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    font-size: 1em;
-    color: black;
-    outline: 0;
-    background: white;
 }
 
 .cancel:hover{

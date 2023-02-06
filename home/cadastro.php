@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['submit'])){
-        include_once('config.php');
+        include_once('../config.php');
 
         $nome = $_POST['nome'];
         $matricula = $_POST['matricula'];

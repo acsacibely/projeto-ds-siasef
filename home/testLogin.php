@@ -28,7 +28,7 @@ session_start();
         }else{
             $_SESSION['matricula'] = $matricula;
             $_SESSION['senha'] = $senha;
-            header('Location: ../sistema.php');
+            header('Location: ../sistema/sistema.php');
         }
         
     }else{
